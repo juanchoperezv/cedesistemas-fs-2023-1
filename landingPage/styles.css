@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;400;600&display=swap');
+
+/* para que todos los elementos siempre esten dentro de su propia caja */
+
+*,
+ ::after,
+ ::before {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    /* border: 1px solid red; */
+    background: url('https://landing.zytheme.com/siena/assets/images/background/bg-1.png');
+    background-repeat: no-repeat;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.container {
+    /* border: 1px solid blue; */
+    padding: 5px 70px;
+}
+
+header {
+    display: flex;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+nav {
+    /* border: 1px solid purple; */
+    flex: 1;
+    /* justify-content: flex-end;
+    display: flex; */
+}
+
+nav ul {
+    /* border: 1px solid green; */
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav ul li {
+    list-style: none;
+    margin: 0px 15px;
+}
+
+nav a {
+    color: #6262a0;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+nav a:hover {
+    color: #664ffa;
+}
+
+.principal-container {
+    display: flex;
+    padding: 60px 10px;
+}
+
+.ppal-message {
+    flex: 6;
+    padding: 40px;
+}
+
+h1 {
+    color: #6262a0;
+    font-size: 3em;
+    font-weight: 600;
+}
+
+p {
+    color: #ababc7;
+}
+
+.form-container {
+    background-color: #fff;
+    padding: 20px 40px;
+    -webkit-box-shadow: 2px 4px 4px 1px rgba(214, 206, 214, 0.63);
+    -moz-box-shadow: 2px 4px 4px 1px rgba(214, 206, 214, 0.63);
+    box-shadow: 2px 4px 4px 1px rgba(214, 206, 214, 0.63);
+    border-radius: 5px;
+    flex: 4;
+}
+
+.form-container h3 {
+    color: #6262a0;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.form-container p {
+    width: 100%;
+    text-align: center;
+}
+
+.field-input {
+    margin-bottom: 8px;
+}
+
+.field-input input {
+    width: 100%;
+    background-color: #f7f6ff;
+    color: #222;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 1.1em;
+    outline: none;
+    padding: 8px 5px 8px 12px;
+}
+
+.field-input label {
+    color: #6262a0;
+    font-size: .9em;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.btn-primary {
+    width: 100%;
+    background-color: #664ffa;
+    border-radius: 5px;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 15px 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 24px;
+}
+
+.btn-primary:hover {
+    background-color: #3b1df9;
+}
+
+.secondary-container {
+    padding: 60px 20px;
+}
+
+.secondary-container h2 {
+    width: 100%;
+    text-align: center;
+    font-size: 2em;
+    color: #6262a0;
+    padding: 0 30%;
+}
+
+.secondary-container .title {
+    padding-bottom: 40px;
+}
+
+.tarjeta-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tarjeta {
+    width: 30%;
+    padding: 20px 40px;
+    text-align: center;
+}
+
+.tarjeta img {
+    width: 80px;
+}
+
+.tarjeta h3 {
+    font-size: 1.8em;
+}

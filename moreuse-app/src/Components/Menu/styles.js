@@ -8,7 +8,8 @@ export const MenuContainer = styled.section`
   top: 0px;
   background-color: #2C2E83;
   height: 100%;
-  display: none; //temporal
+  //recibe un parametro para saber que valor le pone a  la propiedad
+  display: ${ props => props.isShown ? 'block' : 'none'};
 
 `;
 

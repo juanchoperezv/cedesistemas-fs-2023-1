@@ -2,13 +2,16 @@ import { useState } from 'react';
 import {RouterProvider} from 'react-router-dom';
 import {router} from './Routes/Router';
 import { Globalstyle } from './globalStyles';
+import { MenuContextStore } from './Contexts/MenuContext';
 
 export const App = () =>
 {
   return (
     <>
-    <Globalstyle />
-    <RouterProvider router={router}/>
+      <Globalstyle />
+      <MenuContextStore>
+        <RouterProvider router={router}/>
+      </MenuContextStore>
     </>
   )
 }

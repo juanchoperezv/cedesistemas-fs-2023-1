@@ -49,6 +49,10 @@ export const FormControl = styled.div`
     border-radius: 4px;
 
   }
+  span {
+    color: red;
+    font-size: 0.8;
+  }
 `;
 
 

@@ -21,10 +21,10 @@ export const ButtonContainer = styled.div`
   display: flex;
 `;
 
-export const Button = ({text="", onPress}) => {
+export const Button = ({text="", type, onPress}) => {
   return (
     <ButtonContainer>
-      <ButtonStyled onClick={onPress}>
+      <ButtonStyled type ={type} onClick={onPress}>
         {text}
       </ButtonStyled>
     </ButtonContainer>

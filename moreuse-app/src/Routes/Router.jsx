@@ -23,7 +23,7 @@ export const router = createBrowserRouter([
     )
   },
   {
-    path: "/wear-detail",
+    path: "/wear-detail/:id",
     //element: <WearDetail />
     element: (
     <Suspense fallback={<Lazyloading />}>

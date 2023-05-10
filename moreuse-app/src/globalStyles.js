@@ -40,7 +40,7 @@ export const FormControl = styled.div`
     display: block;
   }
 
-  input {
+  input, textarea, select {
     width: 100%;
     font-family: 'Nunito Sans', sans-serif;
     font-size: 1.1em;
@@ -52,6 +52,10 @@ export const FormControl = styled.div`
   span {
     color: red;
     font-size: 0.8;
+  }
+
+  textarea {
+    text-align: justify;
   }
 `;
 

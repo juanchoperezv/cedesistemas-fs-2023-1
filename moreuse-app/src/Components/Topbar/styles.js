@@ -22,4 +22,9 @@ export const MenuIconContainer = styled.div`
     font-size: 1.6em;
   }
 
+  &:hover {
+    color: #ccc;
+    cursor: pointer;
+  }
+
 `;

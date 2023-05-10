@@ -1,5 +1,5 @@
 import {FaBars} from 'react-icons/fa';
-import {TopbarContainer} from './styles';
+import {MenuIconContainer, TopbarContainer} from './styles';
 import {MenuContext} from '../../Contexts/MenuContext';
 import { useContext } from 'react';
 
@@ -13,7 +13,10 @@ export const Topbar = () => {
 
   return (
     <TopbarContainer>
-      <div><FaBars onClick={toggleMenu}/></div>
+      <MenuIconContainer>
+        <div><FaBars onClick={toggleMenu}/></div>
+      </MenuIconContainer>
+
       <div>
         <img width="100px" src="/assets/logo.png" alt="Logo More Use" />
       </div>

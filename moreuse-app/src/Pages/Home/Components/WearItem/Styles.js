@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const WearItemContainer = styled.div`
   //border: 1px solid red;
-  width: 210px;
+  width: 150px;
   display: flex;
   flex-direction: column;
   padding: 5px;

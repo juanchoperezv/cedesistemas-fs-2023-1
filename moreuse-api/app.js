@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 
+const cors = require('cors');
+
 //para control de ambientes
 require('dotenv').config({path: 'src/env/.env.'+process.env.NODE_ENV});
 console.log('RUNNING ENVIROMENT: ', process.env.NODE_ENV);
@@ -12,6 +14,9 @@ const port = process.env.PORT;
 app.use(bodyParser.urlencoded({extended:false}));
 //para que el body de las url lleguen en formato json
 app.use(bodyParser.json());
+
+//para que permita solicitudes desde servers o puestros diferentes
+app.use(cors());
 
 //conexion a la base de datos
 require('./src/conn/mongo_conn');

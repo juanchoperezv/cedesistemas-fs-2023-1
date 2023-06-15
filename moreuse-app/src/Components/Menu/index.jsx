@@ -55,12 +55,14 @@ export const Menu = () => {
       <MenuItemWrapper>
         {
           OptionsMenu.map((item, index) => {
+
               if (item.authRquired && userState.isAuth) {
                 return <Link to={item.path} key={index}> <li>{item.name}</li> </Link>
               }
               if (!item.authRquired && !userState.isAuth) {
                 return <Link to={item.path} key={index}> <li>{item.name}</li> </Link>
               }
+
             }
           )
         }

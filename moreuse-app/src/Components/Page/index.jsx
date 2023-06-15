@@ -1,4 +1,5 @@
 import {Topbar} from '../Topbar';
+import { Link} from 'react-router-dom';
 import {Menu} from '../Menu';
 import {PageContainer, PageTitleContainer} from './style';
 import { useLocation } from 'react-router-dom';
@@ -25,14 +26,22 @@ export const Page = (props) => {
   return (
     <PageContainer>
       <Topbar />
-        {
-          //condicion, si viene titulo muestra el titulo
-          props.title && (
-            <PageTitleContainer>
-              <h1>{props.title}</h1>
-            </PageTitleContainer>
-          )
-        }
+        <div>
+          <div>
+            {
+              //condicion, si viene titulo muestra el titulo
+              props.title && (
+                <PageTitleContainer>
+                  <h1>{props.title}</h1>
+                </PageTitleContainer>
+              )
+            }
+          </div>
+          <div>
+            {/* <Link to='/'> Inicio</Link> */}
+          </div>
+        </div>
+
         <div>
           {props.children}
         </div>

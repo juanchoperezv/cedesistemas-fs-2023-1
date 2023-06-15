@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button} from "../../Components/Button";
 import { Page } from "../../Components/Page";
 import { FormContainer, FormControl } from "../../globalStyles";
@@ -6,12 +6,17 @@ import {useForm} from 'react-hook-form'
 import { EMAILEXPREGULAR } from "../../Constants";
 
 const Profile = () => {
+
+  const navigate = useNavigate();
+
   //para poder usar los formularios
   const {register, handleSubmit, formState: {errors}} = useForm();
 
   const onSubmitRegister = (data) => {
-    console.log('datos', data);
+    //validateUserRequest(data);
   }
+
+
 
   return (
     <Page title="Perfil Usuario">

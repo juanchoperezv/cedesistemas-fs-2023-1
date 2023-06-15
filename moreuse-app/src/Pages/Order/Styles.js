@@ -23,7 +23,7 @@ export const WearImageContainer = styled.div`
   justify-content: center;
   img {
     //laptops y desktops
-    width: 20%;
+    width: 10%;
     //tablets y smartphones
     @media only screen and (max-width: 768px) {
       width: 40%;
@@ -35,4 +35,7 @@ export const WearImageContainer = styled.div`
 export const WearDetailContent = styled.div`
   //border: 1px solid red;
   margin: 0 15px;
+  h5, p, h4, h2, h3 {
+    margin: 0;
+  }
 `;

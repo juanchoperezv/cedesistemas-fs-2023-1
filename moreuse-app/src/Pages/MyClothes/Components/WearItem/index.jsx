@@ -1,13 +1,15 @@
 import { Link } from "react-router-dom"
 import { WearItemContainer, WearItemImage } from "./Styles"
 
-export const WearItem = ({_id, image, name, target, gender, price}) => {
+export const WearItem = ({_id, image, name, target, gender, price, status}) => {
 
   if (gender == 'F') {
     gender = 'Femenino'
   }else{
     gender = 'Masculino'
   }
+
+  const clotheStatus = status == 1 ? 'Disponible' : 'Vendida';
 
   switch (target) {
     case '1m':
@@ -79,7 +81,10 @@ export const WearItem = ({_id, image, name, target, gender, price}) => {
         </WearItemImage>
         <h3>{name}</h3>
         <h5>{target} / {gender}</h5>
-        <h2>{price}</h2>
+        <h3>{price}</h3>
+        {clotheStatus}
+
+
       </WearItemContainer>
     </Link>
 

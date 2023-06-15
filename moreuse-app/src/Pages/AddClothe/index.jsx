@@ -4,22 +4,41 @@ import { useNavigate } from "react-router-dom"
 import { FormContainer, FormControl } from "../../globalStyles";
 import { useForm} from 'react-hook-form'
 import { TARGETS, GENDERS} from '../../Constants/index'
+import { ALERT_ICON, customAlert } from "../../Components/Alert/Alert";
+import { HTTTP_METHODS, httpRequest } from "../../Utils/HttpRequest";
 
 
 const AddClothe = () => {
+  const navigate = useNavigate();
+
   //para poder usar los formularios
   const {register, handleSubmit, formState: {errors}} = useForm();
 
   const onSubmitAddClothe = (data) => {
-    console.log('datos', data);
+    //console.log('datos', data);
+    validateAddClotheRequest(data);
     handleClick();
   }
 
-  const navigate = useNavigate();
+  const validateAddClotheRequest =  async (data) => {
+    try {
+      const response = await httpRequest({
+        method: HTTTP_METHODS.POST,
+        endpoint: '/clothe/add',
+        body: data
+      });
 
-    const handleClick = () => {
-        navigate("/my-clothes");
+    } catch (error) {
+      console.log(error);
+      customAlert({icon: ALERT_ICON.ERROR, title: 'Error', text:'No se logro dar de alta la prenda'});
     }
+  }
+
+
+
+  const handleClick = () => {
+      navigate("/my-clothes");
+  }
 
   return (
     <Page title="Nueva Prenda">
@@ -32,14 +51,14 @@ const AddClothe = () => {
           </FormControl>
           <FormControl>
             <label>Nombre</label>
-            <input type="text" {...register("title", {required:true})}/>
-            {errors.title?.type === 'required' && <span>Campo requerido</span>}
+            <input type="text" {...register("name", {required:true})}/>
+            {errors.name?.type === 'required' && <span>Campo requerido</span>}
           </FormControl>
           <FormControl>
             <label>Público Objetivo</label>
             <select {...register("target", {required:true})}>
               {
-                TARGETS.map((item, key) => <option key={key} value={item}>{item}</option>)
+                TARGETS.map((item, key) => <option key={item.id} value={item.id}>{item.title}</option>)
               }
             </select>
             {errors.target?.type === 'required' && <span>Campo requerido</span>}
@@ -55,9 +74,14 @@ const AddClothe = () => {
           </FormControl>
           <FormControl>
             <label>Descripción</label>
-            <textarea cols="30" rows="5" {...register("description", {required:true})}>
+            <textarea cols="30" rows="2" {...register("description", {required:true})}>
             </textarea>
             {errors.description?.type === 'required' && <span>Campo requerido</span>}
+          </FormControl>
+          <FormControl>
+            <label>Precio</label>
+            <input type="number" {...register("price", {required:true})}/>
+            {errors.price?.type === 'required' && <span>Campo requerido</span>}
           </FormControl>
           <Button type="submit" text="Agregar Prenda"/>
         </form>

@@ -3,6 +3,7 @@ import { getToken } from "../Utils/TokenLocalStorage";
 
 const headersConfig = () => {
   const token = getToken();
+  console.log('jp token', token);
   if (token) {
     return {
       "Content-Type": "application/json",
@@ -15,6 +16,12 @@ const headersConfig = () => {
       "Accept": "application/json"
     }
   }
+
+  // return {
+  //   "Content-Type": "application/json",
+  //   "Accept": "application/json",
+  //   "Authorization": "Bearer "+ token
+  // }
 
 }
 
@@ -40,5 +47,6 @@ export const httpRequest = async ({
       params,
       headers: headersConfig()
     }
+    console.log('jp',options);
     return await axios(options);
 }

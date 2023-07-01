@@ -8,26 +8,22 @@ const Home = () => {
   const [WEAR_LIST, setMyValue] = useState([{}]);
 
   useEffect( () => {
-
-    async function getClothesRequest() {
-      try {
-        const response = await httpRequest({
-          method: HTTTP_METHODS.GET,
-          endpoint: '/clothe'
-        });
-
-        console.log(response);
-        setMyValue(response.data.clothes);
-        console.log(response);
-
-      } catch (error) {
-        console.log(error);
-        //customAlert({icon: ALERT_ICON.ERROR, title: 'Error', text:'No se logro dar de alta al usuario '});
-      }
-    }
     getClothesRequest();
-
   }, []);
+
+  const getClothesRequest = async() => {
+    try {
+      const response = await httpRequest({
+        method: HTTTP_METHODS.GET,
+        endpoint: '/clothe'
+      });
+
+      setMyValue(response.data.clothes);
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <Page>

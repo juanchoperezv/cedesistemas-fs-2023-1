@@ -34,7 +34,7 @@ const Login = () => {
 
       //poner el token al localstorage
       setToken(response.data.token);
-      changeUserState();
+      //changeUserState();
 
       customAlert({
         icon: ALERT_ICON.SUCCESS,

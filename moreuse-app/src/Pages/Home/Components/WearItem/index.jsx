@@ -3,7 +3,7 @@ import { WearItemContainer, WearItemImage } from "./Styles"
 
 export const WearItem = ({_id, image, name, target, gender, price}) => {
 
-  if (gender == 'F') {
+  if (gender === 'F') {
     gender = 'Femenino'
   }else{
     gender = 'Masculino'

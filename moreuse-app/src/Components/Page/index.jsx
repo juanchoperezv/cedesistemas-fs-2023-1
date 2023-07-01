@@ -4,12 +4,14 @@ import {Menu} from '../Menu';
 import {PageContainer, PageTitleContainer} from './style';
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-import {MenuContext} from '../../Contexts/MenuContext';
+import { MenuContext} from '../../Contexts/MenuContext';
+import { UserContext} from '../../Contexts/UserContext';
 import { useContext } from 'react';
 
 export const Page = (props) => {
   //hace uso del valor usando el hook(useContext) del contexto
   const {menuState, closeMenu} = useContext(MenuContext);
+  const { validateSesion } = useContext(UserContext);
 
   //const location = useLocation();
 
@@ -17,6 +19,7 @@ export const Page = (props) => {
   useEffect(() => {
     //unica vez al cargar la pagina
     hideMenu();
+    validateSesion();
   }, []);
 
   const hideMenu = () => {

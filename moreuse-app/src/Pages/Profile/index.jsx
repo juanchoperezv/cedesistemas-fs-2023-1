@@ -4,49 +4,29 @@ import { Page } from "../../Components/Page";
 import { FormContainer, FormControl } from "../../globalStyles";
 import {useForm} from 'react-hook-form'
 import { EMAILEXPREGULAR } from "../../Constants";
+import { useContext } from "react";
+import { UserContext } from "../../Contexts/UserContext";
+import { ProfileContainer } from "./Styles";
 
 const Profile = () => {
-
-  const navigate = useNavigate();
-
-  //para poder usar los formularios
-  const {register, handleSubmit, formState: {errors}} = useForm();
-
-  const onSubmitRegister = (data) => {
-    //validateUserRequest(data);
-  }
-
-
+  const { userState } = useContext(UserContext);
 
   return (
     <Page title="Perfil Usuario">
-      <FormContainer>
-        <form onSubmit={handleSubmit(onSubmitRegister)} noValidate>
-          <FormControl>
-            <label>Nombre</label>
-            <input type="text" {...register("name", {required:true})} />
-            {errors.name?.type === 'required' && <span>Campo requerido</span>}
-          </FormControl>
-          <FormControl>
-            <label>Correo electrónico</label>
-            <input type="email" {...register("email", {required: true, pattern: EMAILEXPREGULAR})}/>
-            {errors.email?.type === 'required' && <span>Campo requerido</span>}
-            {errors.email?.type === 'pattern' && <span>Correo no valido</span>}
-          </FormControl>
-          <FormControl>
-            <label>Dirección</label>
-            <input type="text" {...register("address", {required:true})}/>
-            {errors.address?.type === 'required' && <span>Campo requerido</span>}
-          </FormControl>
-          <FormControl>
-            <label>Teléfono</label>
-            <input type="number" {...register("phone", {required:true, minLength:10})}/>
-            {errors.phone?.type === 'required' && <span>Campo requerido</span>}
-            {errors.phone?.type === 'minLength' && <span>Mínimo 10 caracteres</span>}
-          </FormControl>
-          <Button type="submit" text="Actualizar"/>
-          </form>
-      </FormContainer>
+      <ProfileContainer>
+      <div class="inicio" style={{textAlign: "rigth",  }}><Link to='/'> Inicio</Link></div>
+        <h3>Nombre</h3>
+        <p>{userState.name}</p>
+        <h3>Correo</h3>
+        <p>{userState.email}</p>
+        <h3>Dirección</h3>
+        <p>{userState.address}</p>
+        <h3>Teléfono</h3>
+        <p>{userState.phone}</p>
+      </ProfileContainer>
+
+
+
     </Page>
 
   )

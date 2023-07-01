@@ -11,6 +11,7 @@ const Profile = React.lazy(() => import('../Pages/Profile/index'));
 const MyClothes = React.lazy(() => import('../Pages/MyClothes/index'));
 const AddClothe = React.lazy(() => import('../Pages/AddClothe/index'));
 const Payment = React.lazy(() => import('../Pages/Order/index'));
+const Logout = React.lazy(() => import('../Pages/Logout/index'));
 
 //importacion clasica pero con carga completa (consume mas memoria porque carga todo)
 //import {Home} from '../Pages/Home';
@@ -85,7 +86,7 @@ export const router = createBrowserRouter([
     //element: <Home />
     element: (
       <Suspense fallback={<Lazyloading />}>
-        <Home />
+        <Logout />
       </Suspense>
     )
   },
